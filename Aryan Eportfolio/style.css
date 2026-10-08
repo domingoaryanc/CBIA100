@@ -1,0 +1,163 @@
+/* Page Background set to Soft Light Pink on the Sides */
+body {
+    background-color: #fce4ec; /* Soft Light Pink */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 30px 0;
+    line-height: 1.6;
+}
+
+/* White Container in the Middle */
+.main-wrapper {
+    background-color: #ffffff;
+    color: #333333;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 40px 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Header Bar - Medium Rose/Pastel Pink */
+header {
+    background-color: #f48fb1;
+    color: #ffffff;
+    padding: 20px 0;
+    margin: -20px -40px 20px -40px;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+}
+
+header h1 {
+    color: #ffffff;
+    margin: 0 0 5px 0;
+    letter-spacing: 2px;
+}
+
+header p {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* Navigation Links */
+.nav-links a {
+    color: #ffffff;
+    text-decoration: underline;
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.nav-links a:hover {
+    color: #880e4f; /* Deep Rose Accent */
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #c2185b; /* Elegant Deep Pink */
+}
+
+.acronym-tagline {
+    font-size: 16px;
+    margin-top: 8px;
+    color: #d81b60;
+}
+
+.cta-link {
+    display: inline-block;
+    background-color: #f48fb1;
+    color: #ffffff;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.cta-link:hover {
+    background-color: #ec407a;
+}
+
+/* Horizontal Divider Rules */
+hr {
+    border: none;
+    border-top: 1px solid #f8bbd0;
+    margin: 25px 0;
+}
+
+/* BIGGER & SQUARE Profile Image */
+.profile-img-small {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border: 3px solid #f48fb1;
+    border-radius: 4px; /* Square shape with slightly smooth edges */
+    margin-bottom: 12px;
+}
+
+/* Featured Projects Styling */
+.project-item {
+    margin-bottom: 30px;
+}
+
+/* Project Images - Uncropped & Bigger */
+.project-img {
+    width: 100%;
+    max-height: 480px; /* Increased height so image is not cut in half */
+    object-fit: contain; /* Displays full image without cropping */
+    background-color: #fafafa;
+    border-radius: 6px;
+    border: 2px solid #f48fb1;
+    margin-bottom: 12px;
+}
+
+/* Activities Cards Grid */
+.activities-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.activity-card {
+    flex: 1;
+    min-width: 260px;
+}
+
+.activity-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #f48fb1;
+}
+
+/* Form Inputs Styling */
+input, textarea {
+    border: 1px solid #f48fb1;
+    padding: 8px;
+    color: #000000;
+    width: 280px;
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    background-color: #f48fb1;
+    color: #ffffff;
+    border: none;
+    padding: 10px 18px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: #ec407a;
+}
+
+/* Footer */
+footer {
+    font-size: 14px;
+    margin-top: 15px;
+    color: #888888;
+}

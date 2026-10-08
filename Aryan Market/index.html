@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AK Finds PH - Local Marketplace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>AK Finds PH</h1>
+                <span class="tagline">Supporting Local Philippine Artisans & Farmers</span>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search local products..." onkeyup="filterProducts()">
+                <button type="button">Search</button>
+            </div>
+
+            <div class="cart-status">
+                <button class="cart-btn" onclick="toggleCart()">
+                    🛒 Cart (<span id="cartCount">0</span>)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Announcement -->
+    <div class="hero-banner">
+        <h2>Discover Authentic Philippine Goods</h2>
+        <p>100% Locally Sourced • Support Local Communities • Delivered Fast</p>
+    </div>
+
+    <!-- About Us Section -->
+    <section class="about-us-section">
+        <div class="about-container">
+            <h2>About Us</h2>
+            <p>AK Finds is a small online business that supports local products of the Filipino people, especially small business owners across the country. Every item here represents the culture and tradition of each region and was brought to life by Filipino creators. Nawa'y suportahan natin ang sariling atin, sa pamamagitan ng pagbili ng mga produktong dekalidad, na gawa ng mga Pilipinong malikhain.</p>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <div class="main-container">
+
+        <!-- Category Sidebar -->
+        <aside class="sidebar">
+            <h3>Categories</h3>
+            <ul class="category-list">
+                <li><a href="#" class="active" onclick="filterCategory('all', event)">All Products</a></li>
+                <li><a href="#" onclick="filterCategory('beverage', event)">Coffee & Beverages</a></li>
+                <li><a href="#" onclick="filterCategory('food', event)">Food & Delicacies</a></li>
+                <li><a href="#" onclick="filterCategory('crafts', event)">Handicrafts & Bags</a></li>
+                <li><a href="#" onclick="filterCategory('wellness', event)">Wellness & Oils</a></li>
+            </ul>
+        </aside>
+
+        <!-- Product Grid Section -->
+        <main class="products-section">
+            <div class="section-title">
+                <h2>Featured Local Products</h2>
+                <span class="product-count">5 Items Available</span>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+
+                <!-- Pic 1: Handwoven Abaca Tote Bag -->
+                <div class="product-card" data-category="crafts">
+                    <div class="badge">Eco-Friendly</div>
+                    <div class="img-wrapper">
+                        <img src="handwoven abaca tote.jpg" 
+                             onerror="this.onerror=null; this.src='handwoven abaca tote.png'; if(!this.src) this.src='handwoven abaca tote.jpeg';" 
+                             alt="Handwoven Abaca Tote">
+                    </div>
+                    <div class="product-details">
+                        <span class="category-tag">Handicrafts</span>
+                        <h3>Handwoven Abaca Tote Bag</h3>
+                        <p class="description">Sturdy tote bag woven by hand from natural abaca fiber. Crafted by talented artisans in Albay, Bicol.</p>
+                        <div class="rating">⭐⭐⭐⭐☆ (4.8)</div>
+                        <div class="price-row">
+                            <span class="price">₱450.00</span>
+                            <button class="add-btn" onclick="addToCart('Handwoven Abaca Tote Bag', 450)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pic 2: Batangas Kapeng Barako -->
+                <div class="product-card" data-category="beverage">
+                    <div class="badge">Best Seller</div>
+                    <div class="img-wrapper">
+                        <img src="batangas kapeng barako.jpg" 
+                             onerror="this.onerror=null; this.src='batangas kapeng barako.png'; if(!this.src) this.src='batangas kapeng barako.jpeg';" 
+                             alt="Batangas Kapeng Barako">
+                    </div>
+                    <div class="product-details">
+                        <span class="category-tag">Coffee & Beverage</span>
+                        <h3>Batangas Kapeng Barako</h3>
+                        <p class="description">Strong-flavored coffee beans from small farms in Lipa, Batangas.</p>
+                        <div class="rating">⭐⭐⭐⭐⭐ (4.9)</div>
+                        <div class="price-row">
+                            <span class="price">₱220.00</span>
+                            <button class="add-btn" onclick="addToCart('Batangas Kapeng Barako', 220)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pic 3: Pure Davao Tablea -->
+                <div class="product-card" data-category="food">
+                    <div class="badge">Local Favorite</div>
+                    <div class="img-wrapper">
+                        <img src="pure davao tablea.jpg" 
+                             onerror="this.onerror=null; this.src='pure davao tablea.png'; if(!this.src) this.src='pure davao tablea.jpeg';" 
+                             alt="Pure Davao Tablea">
+                    </div>
+                    <div class="product-details">
+                        <span class="category-tag">Food & Delicacies</span>
+                        <h3>Pure Davao Tablea</h3>
+                        <p class="description">Rich cacao tablets prepared the traditional way — perfect for brewing hot tsokolate or baking.</p>
+                        <div class="rating">⭐⭐⭐⭐⭐ (5.0)</div>
+                        <div class="price-row">
+                            <span class="price">₱180.00</span>
+                            <button class="add-btn" onclick="addToCart('Pure Davao Tablea', 180)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pic 4: Coconut Oil Formula -->
+                <div class="product-card" data-category="wellness">
+                    <div class="badge">Organic</div>
+                    <div class="img-wrapper">
+                        <img src="coconut oil formula.jpg" 
+                             onerror="this.onerror=null; this.src='coconut oil formula.png'; if(!this.src) this.src='coconut oil formula.jpeg';" 
+                             alt="Coconut Oil Formula">
+                    </div>
+                    <div class="product-details">
+                        <span class="category-tag">Wellness</span>
+                        <h3>Virgin Coconut Oil Formula</h3>
+                        <p class="description">Organic virgin coconut oil, daily body lotion.</p>
+                        <div class="rating">⭐⭐⭐⭐☆ (4.7)</div>
+                        <div class="price-row">
+                            <span class="price">₱280.00</span>
+                            <button class="add-btn" onclick="addToCart('Virgin Coconut Oil Formula', 280)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pic 5: Calamansi Concentrate -->
+                <div class="product-card" data-category="beverage">
+                    <div class="badge">Healthy Choice</div>
+                    <div class="img-wrapper">
+                        <img src="calamansi concentrate.jpg" 
+                             onerror="this.onerror=null; this.src='calamansi concentrate.png'; if(!this.src) this.src='calamansi concentrate.jpeg';" 
+                             alt="Calamansi Concentrate">
+                    </div>
+                    <div class="product-details">
+                        <span class="category-tag">Coffee & Beverage</span>
+                        <h3>Pure Calamansi Concentrate</h3>
+                        <p class="description">Homemade calamansi juice concentrate lightly sweetened with honey.</p>
+                        <div class="rating">⭐⭐⭐⭐⭐ (4.9)</div>
+                        <div class="price-row">
+                            <span class="price">₱195.00</span>
+                            <button class="add-btn" onclick="addToCart('Pure Calamansi Concentrate', 195)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Sliding Shopping Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Your Shopping Cart</h3>
+            <button class="close-btn" onclick="toggleCart()">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-msg">Your cart is currently empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Total Amount:</span>
+                <span class="total-price" id="cartTotal">₱0.00</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p><b>AK Finds PH</b> — Official Online Store for Local Philippine Goods</p>
+        <p>&copy; 2026 AK Finds PH. All rights reserved.</p>
+    </footer>
+
+    <!-- Interactive JS -->
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            let existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ name: name, price: price, qty: 1 });
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            let count = cart.reduce((sum, item) => sum + item.qty, 0);
+            let total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            document.getElementById('cartCount').innerText = count;
+            document.getElementById('cartTotal').innerText = '₱' + total.toFixed(2);
+
+            let container = document.getElementById('cartItems');
+            if (cart.length === 0) {
+                container.innerHTML = '<p class="empty-msg">Your cart is currently empty.</p>';
+            } else {
+                container.innerHTML = cart.map((item, index) => `
+                    <div class="cart-item">
+                        <div>
+                            <strong>${item.name}</strong><br>
+                            <small>₱${item.price.toFixed(2)} x ${item.qty}</small>
+                        </div>
+                        <div>
+                            <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
+                            <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function changeQty(index, change) {
+            cart[index].qty += change;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function toggleCart() {
+            document.getElementById('cartDrawer').classList.toggle('open');
+            document.getElementById('cartOverlay').classList.toggle('open');
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            alert('Thank you for shopping at AK Finds PH! Your order has been placed.');
+            cart = [];
+            updateCartUI();
+            toggleCart();
+        }
+
+        function filterProducts() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                let text = card.innerText.toLowerCase();
+                card.style.display = text.includes(input) ? 'flex' : 'none';
+            });
+        }
+
+        function filterCategory(cat, event) {
+            if (event) event.preventDefault();
+            let links = document.querySelectorAll('.category-list a');
+            links.forEach(l => l.classList.remove('active'));
+            if (event) event.target.classList.add('active');
+
+            let cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                if (cat === 'all' || card.dataset.category === cat) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
